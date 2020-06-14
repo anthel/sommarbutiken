@@ -1,12 +1,12 @@
 import React from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
-
-/* import logo from '../svg/logo2.svg';
+/* 
+import logo from '../svg/logo2.svg';
 import StarIcon from '@material-ui/icons/Star';
 import ViewAgendaIcon from '@material-ui/icons/ViewAgenda';
-import PersonIcon from '@material-ui/icons/Person';
+import PersonIcon from '@material-ui/icons/Person'; */
 import SearchIcon from '@material-ui/icons/Search';
- */
+
 import InputBase from '@material-ui/core/InputBase';
 
 import { createStyles, makeStyles } from '@material-ui/core/styles';
@@ -69,7 +69,7 @@ const useStyles = makeStyles((theme) =>
   }), 
 );
 
-  function Nav(props) {
+  function NavigationBar(props) {
 
   const history = useHistory();
 
@@ -81,20 +81,22 @@ const useStyles = makeStyles((theme) =>
   return (
     <div className="navBar">
 
+    <NavLink className="navLink" to='/'>
       <h2 className={classes.logoHeader}>Sommarbutiken</h2>
+    </NavLink>
       <div className="navLinks">
-        <NavLink className="navLink" to='/Watchlist'>Watchlist</NavLink>
+        <NavLink className="navLink" to='/'>Home</NavLink>
         <NavLink className="navLink" to='/SearchMovies'>Genre</NavLink>
         
-          <NavLink className="navLink" to='/Login'>Login</NavLink> 
-            
-          <NavLink to="/Login" className="navLink">Logout</NavLink>
+        <NavLink className="navLink" to='/login'>Login</NavLink> 
+          
+        <NavLink to="/Login" className="navLink">Logout</NavLink>
         
       </div>
       {/* {authenticated && <h2 style={{color: 'white'}}>{username}</h2>} */}
       <div className={classes.search}>
         <div className={classes.searchIcon}>
-          {/* <SearchIcon className={classes.searchIconInSearch}/> */}
+          <SearchIcon className={classes.searchIconInSearch}/>
         </div>
         <InputBase
           placeholder="Search…"
@@ -111,4 +113,4 @@ const useStyles = makeStyles((theme) =>
   )
 }
 
-export default Nav;
+export default NavigationBar;

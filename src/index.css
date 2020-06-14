@@ -29,3 +29,8 @@ code {
   background-color: rgb(35, 37, 43);
   font-weight: bold;
 }
+.navLink {
+  color: rgb(105, 13, 128);
+  font-size: 20px;
+  text-decoration: none;
+}
