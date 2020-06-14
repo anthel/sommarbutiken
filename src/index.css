@@ -11,3 +11,84 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 5%;
+  background-color: slategrey;
+}
+
+#cart {
+  width: 50 px;
+  height: 50 px;
+  background-color: salmon;
+  padding: 0 3%;
+}
+
+li {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: seagreen;
+  margin: 1% 0;
+
+}
+
+ul {
+  padding: 0% 5%;
+}
+
+
+button {
+  background-color: steelblue;
+  border-radius: 1em;
+  border: 2px solid black;
+  margin: 5px;
+  width: 10%;
+  cursor: pointer;
+}
+
+.flyToCart {
+  animation-name: fly;
+  animation-duration: 1.5s;
+  position: relative;
+}
+
+@keyframes fly {
+  0% {opacity: 100%; left: 0; top:0; scale: 0;}
+  10% {opacity: 100%; left: -5em; top:0; scale: 1.3}
+  50% {opacity: 20%;}
+  80% {opacity: 0%; left: 120em; scale: 2;}
+}
+
+.shake {
+  animation-name: shake;
+  position: relative;
+  animation-delay: 1s;
+  animation-duration: 0.5s;
+}
+
+@keyframes shake {
+  0% { left: -15px; scale: 1.3}
+  20% {left: 15px;}
+  40% {left: -15px; scale: 1.5;}
+  60% {left: 15px;}
+  80% {left: -15px;}
+  100% {left: 0px; scale: 1;}
+}
+
+.amount {
+  animation-name: changeAmount;
+  position: relative;
+  animation-delay: 1.5s;
+  animation-duration: 0.5s;
+}
+
+@keyframes changeAmount {
+  from {scale: 0; opacity: 0;}
+  to  {scale: 1; opacity: 100%}
+}
+
