@@ -1,5 +1,9 @@
-import React, {useState} from 'react';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Route} from 'react-router-dom';
+
+import HomeScreen from './screens/HomeScreen';
+import NavigationBar from './components/NavigationBar';
+import LoginScreen from './screens/LoginScreen';
 
 import Nav from './components/Nav'
 import Stuffz from './components/Stuffz'
@@ -31,10 +35,12 @@ let [amountInCart, setAmountInCart] = useState(0)
   }
 
   return (
-    <div className="App">
-      <Nav amountInCart={amountInCart}/>
-      <Stuffz addItemToCart={addItemToCart}/>
-    </div>
+    <BrowserRouter>
+      <NavigationBar/>
+      <Route path='/' exact component={HomeScreen}/>
+      <Route path='/login' exact component={LoginScreen}/>
+    </BrowserRouter>
+    
   );
 }
 
