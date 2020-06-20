@@ -85,12 +85,12 @@ const useStyles = makeStyles((theme) =>
       <h2 className={classes.logoHeader}>Sommarbutiken</h2>
     </NavLink>
       <div className="navLinks">
-        <NavLink className="navLink" to='/'>Home</NavLink>
-        <NavLink className="navLink" to='/SearchMovies'>Genre</NavLink>
+        <NavLink className="navLink" to='/'>Hem</NavLink>
+        <NavLink className="navLink" to='/clothes'>Kläder</NavLink>
         
-        <NavLink className="navLink" to='/login'>Login</NavLink> 
+        <NavLink className="navLink" to='/shoes'>Skor</NavLink> 
           
-        <NavLink to="/Login" className="navLink">Logout</NavLink>
+        <NavLink className="navLink" to="/login" >Logga in</NavLink>
         
       </div>
       {/* {authenticated && <h2 style={{color: 'white'}}>{username}</h2>} */}
@@ -99,7 +99,7 @@ const useStyles = makeStyles((theme) =>
           <SearchIcon className={classes.searchIconInSearch}/>
         </div>
         <InputBase
-          placeholder="Search…"
+          placeholder="Sök…"
           classes={{
             root: classes.inputRoot,
             input: classes.inputInput,
