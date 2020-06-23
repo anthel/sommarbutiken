@@ -6,6 +6,7 @@ import StarIcon from '@material-ui/icons/Star';
 import ViewAgendaIcon from '@material-ui/icons/ViewAgenda';
 import PersonIcon from '@material-ui/icons/Person'; */
 import SearchIcon from '@material-ui/icons/Search';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCartOutlined';
 
 import InputBase from '@material-ui/core/InputBase';
 
@@ -66,6 +67,9 @@ const useStyles = makeStyles((theme) =>
         },
       },
     },
+    cartIcon: {
+      color: 'white',
+    },
   }), 
 );
 
@@ -108,7 +112,11 @@ const useStyles = makeStyles((theme) =>
           
         />
       </div>
-      
+      <ShoppingCartIcon 
+        className={classes.cartIcon}
+        fontSize="large" 
+        color="inherit"
+      />
     </div> 
   )
 }
