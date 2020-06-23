@@ -34,3 +34,14 @@ code {
   font-size: 20px;
   text-decoration: none;
 }
+.container-carousel {
+  position: relative;
+  width: 800px;
+  left: 100px;
+  top: 0;
+}
+.carousel {
+
+
+  width: 200px;
+}
