@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playball&family=Roboto&display=swap');
 
 body {
   margin: 0;
@@ -44,8 +44,31 @@ code {
   left: 100px;
   top: 0;
 }
-.carousel {
 
-
-  width: 200px;
+.link-shoppingcart {
+  margin-right: 20px;
 }
+.logoHeader {
+  color: white;
+  font-family: 'Playball';
+  margin-left: 15px;
+}
+/* 
+.addToCart {
+  position: absolute;
+  width: 100%;
+  background-color: darkgrey;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  cursor: pointer;
+  text-align:center;
+}
+
+.image:hover .item1,
+.image:hover .item2,
+.image:hover .item3 {
+  bottom: 50px;
+  opacity: 1;
+  padding: 10px;
+  text-decoration: none;
+} */

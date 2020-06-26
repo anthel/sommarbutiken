@@ -21,10 +21,6 @@ const useStyles = makeStyles((theme) =>
     root: {
       flexGrow: 1,
     },
-    logoHeader: {
-      color: 'white',
-    },
-
     searchIconInSearch: {
       color: 'white',
     },
@@ -86,7 +82,7 @@ const useStyles = makeStyles((theme) =>
     <div className="navBar">
 
     <NavLink className="navLink" to='/'>
-      <h2 className={classes.logoHeader}>Sommarbutiken</h2>
+      <h2 className="logoHeader">Sommarbutiken</h2>
     </NavLink>
       <div className="navLinks">
         <NavLink className="navLink" to='/'>Hem</NavLink>
@@ -112,11 +108,13 @@ const useStyles = makeStyles((theme) =>
           
         />
       </div>
-      <ShoppingCartIcon 
-        className={classes.cartIcon}
-        fontSize="large" 
-        color="inherit"
-      />
+      <a href="#" className="link-shoppingcart">
+        <ShoppingCartIcon 
+          className={classes.cartIcon}
+          fontSize="large" 
+          color="inherit"
+        />
+      </a>
     </div> 
   )
 }
