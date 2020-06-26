@@ -45,8 +45,22 @@ code {
   top: 0;
 }
 
-.link-shoppingcart {
+/* Shopping cart */
+
+.container-shoppingcart {
+  display: flex;
+  flex-direction: column;
   margin-right: 20px;
+}
+.button-shoppingcart {
+  height: 35px;
+
+  color: white;
+}
+.counter-shoppingcart {
+  color: white;
+  text-align: center;
+  margin: 0;
 }
 .logoHeader {
   color: white;

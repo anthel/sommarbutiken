@@ -2,12 +2,12 @@ const initialState = {
   products: []
 };
 
-const addProductReducer = (state=initialState, action) => {
+const productReducer = (state=initialState, action) => {
   switch (action.type) {
     case 'ADD_PRODUCT':
       return {
         ...state,
-        products: action.payload.product
+        products: action.payload
       }
     default: 
       return state;
@@ -15,4 +15,4 @@ const addProductReducer = (state=initialState, action) => {
     
 };
 
-export default addProductReducer;
+export default productReducer;

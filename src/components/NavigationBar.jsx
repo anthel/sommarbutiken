@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux'
 /* 
 import logo from '../svg/logo2.svg';
 import StarIcon from '@material-ui/icons/Star';
@@ -63,9 +64,6 @@ const useStyles = makeStyles((theme) =>
         },
       },
     },
-    cartIcon: {
-      color: 'white',
-    },
   }), 
 );
 
@@ -75,7 +73,7 @@ const useStyles = makeStyles((theme) =>
 
   const classes = useStyles();
 
- 
+  const productCount = useSelector(state => state.productReducer)
 
 
   return (
@@ -105,16 +103,17 @@ const useStyles = makeStyles((theme) =>
             input: classes.inputInput,
           }}
           inputProps={{ 'aria-label': 'search' }}
-          
         />
       </div>
-      <a href="#" className="link-shoppingcart">
-        <ShoppingCartIcon 
-          className={classes.cartIcon}
-          fontSize="large" 
-          color="inherit"
-        />
-      </a>
+      <div className="container-shoppingcart">
+        <a href="#"  className="button-shoppingcart">
+          <ShoppingCartIcon 
+            fontSize="large" 
+            color="inherit"
+          />
+        </a>
+        <h4 className="counter-shoppingcart">{productCount.products.length}</h4>
+      </div>
     </div> 
   )
 }
