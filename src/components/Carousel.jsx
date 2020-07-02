@@ -9,9 +9,9 @@ function HomepageCarousel()  {
   
   const dispatch = useDispatch();
 
-  function handleAddItem() {
+  function handleAddToCart() {
     console.log('works')
-    dispatch(addToCart('s'))
+    dispatch(addToCart('sa'))
   }
 
   return (
@@ -19,7 +19,7 @@ function HomepageCarousel()  {
       <div>
         <img src={require('../media/images/Shirt2.png')} />
         
-        <a onClick={handleAddItem} className="addToCart" href="#">Add to cart</a>
+        <a onClick={handleAddToCart} className="addToCart" href="#">Add to cart</a>
       </div>
       <div>
         <img src={require('../media/images/Shirt3.jpg')} />

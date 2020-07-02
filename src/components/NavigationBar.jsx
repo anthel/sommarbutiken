@@ -73,7 +73,7 @@ const useStyles = makeStyles((theme) =>
 
   const classes = useStyles();
 
-  const productCount = useSelector(state => state.productReducer)
+  const productState = useSelector(state => state.productReducer)
 
 
   return (
@@ -112,7 +112,7 @@ const useStyles = makeStyles((theme) =>
             color="inherit"
           />
         </a>
-        <h4 className="counter-shoppingcart">{productCount.products.length}</h4>
+        <h4 className="counter-shoppingcart">{productState.products.length}</h4>
       </div>
     </div> 
   )

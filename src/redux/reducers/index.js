@@ -1,4 +1,4 @@
-import productReducer from './addProduct.js'
+import productReducer from './productReducer.js'
 import { combineReducers }from 'redux'
 
 const allReducers = combineReducers({
