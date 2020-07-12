@@ -9,17 +9,26 @@ function HomepageCarousel()  {
   
   const dispatch = useDispatch();
 
-  function handleAddToCart() {
-    console.log('works')
-    dispatch(addToCart('sa'))
+  const handleAddToCart = (product) => {
+    console.log(product)
+    dispatch(addToCart(product))
+  }
+  const shirtOne = {
+    type:'shirt',
+    name:'tegnell-stayhome'
   }
 
   return (
+    
     <Carousel>
       <div>
         <img src={require('../media/images/Shirt2.png')} />
         
-        <a onClick={handleAddToCart} className="addToCart" href="#">Add to cart</a>
+        <a onClick={() =>handleAddToCart(shirtOne)} 
+          className="addToCart" 
+          href="#"
+        >Add to cart
+        </a>
       </div>
       <div>
         <img src={require('../media/images/Shirt3.jpg')} />

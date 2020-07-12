@@ -7,7 +7,7 @@ const productReducer = (state=initialState, action) => {
     case 'ADD_PRODUCT':
       return {
         ...state,
-        products: [...state.products, action.payload] // Adds the incoming product to the array 
+        products: [...state.products, action.payload] // Adds the incoming product to the end of the array 
       }
     default: 
       return state;
