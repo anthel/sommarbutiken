@@ -9,7 +9,7 @@ function HomepageCarousel()  {
   
   const dispatch = useDispatch();
 
-  const handleAddToCart = (product) => {
+  function handleAddToCart(product) {
     console.log(product)
     dispatch(addToCart(product))
   }

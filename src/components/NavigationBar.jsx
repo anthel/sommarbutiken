@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, useHistory } from 'react-router-dom';
+import { Link, NavLink, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux'
 /* 
 import logo from '../svg/logo2.svg';
@@ -106,13 +106,13 @@ const useStyles = makeStyles((theme) =>
         />
       </div>
       <div className="container-shoppingcart">
-        <a href="#"  className="button-shoppingcart">
+        <Link to="/cart" className="button-shoppingcart">
           <ShoppingCartIcon 
             fontSize="large" 
             color="inherit"
           />
-        </a>
-        <h4 className="counter-shoppingcart">{productState.products.length}</h4>
+        </Link>
+        <h4 className="counter-shoppingcart">1</h4>
       </div>
     </div> 
   )

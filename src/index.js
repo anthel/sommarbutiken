@@ -6,11 +6,29 @@ import * as serviceWorker from './serviceWorker';
 
 import allReducers from './redux/reducers';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
+import {
+  Cart,
+  Product,
+  CheckoutButton,
+  cartLocalization,
+  cartReducer,
+  setCartCurrency
+} from 'react-shopping-cart';
+ 
+/* import "bootstrap/dist/css/bootstrap.css";
+import "animate.css/animate.min.css";
+import "font-awesome/css/font-awesome.min.css"; */
+
+
 
 const store = createStore(
-  allReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  combineReducers({
+    cart: cartReducer,
+    allReducers
+  }), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
+store.dispatch(setCartCurrency("USD"));
 
 ReactDOM.render(
   <React.StrictMode>
