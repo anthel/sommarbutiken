@@ -25,10 +25,10 @@ import "font-awesome/css/font-awesome.min.css"; */
 const store = createStore(
   combineReducers({
     cart: cartReducer,
-    allReducers
+    
   }), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
-store.dispatch(setCartCurrency("USD"));
+store.dispatch(setCartCurrency("EUR"));
 
 ReactDOM.render(
   <React.StrictMode>

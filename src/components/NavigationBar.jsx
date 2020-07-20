@@ -83,10 +83,10 @@ const useStyles = makeStyles((theme) =>
       <h2 className="logoHeader">Sommarbutiken</h2>
     </NavLink>
       <div className="navLinks">
-        <NavLink className="navLink" to='/'>Hem</NavLink>
-        <NavLink className="navLink" to='/clothes'>Kläder</NavLink>
         
-        <NavLink className="navLink" to='/shoes'>Skor</NavLink> 
+        <NavLink className="navLink" to='/sell'>Sälj</NavLink>
+        
+        <NavLink className="navLink" to='/buy'>Köp</NavLink> 
           
         <NavLink className="navLink" to="/login" >Logga in</NavLink>
         
