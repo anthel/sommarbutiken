@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { makeStyles, ThemeProvider, createMuiTheme  } from '@material-ui/core/styles';
 import { green } from '@material-ui/core/colors';
@@ -34,29 +34,68 @@ function SellScreen() {
     },
   });
 
+  const handleChange = (e) => {
+    setFormData({...formData,[e.target.name]: e.target.value})
+  }
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    title: "",
+    text: ""
+  })
+
   return (
     <div className={classes.flex}>
       <div className={classes.root}>
         <Paper variant="outlined">
           <h2>Lägg till ny annons i Sommarbutiken</h2>
-          <form className={classes.root} noValidate autoComplete="off">
+          <form 
+            className={classes.root} 
+            noValidate 
+            autoComplete="off"
+            onChange={handleChange}
+          >
             <div>
-              <TextField id="outlined-basic" label="Outlined" variant="outlined" size="small"/>
+              <TextField 
+                name="name"
+                id="outlined-basic" 
+                label="Outlined" 
+                variant="outlined" 
+                size="small"
+                value={formData.name}
+              />
             </div>
             <div>
-              <TextField id="outlined-basic" label="Outlined" variant="outlined" size="small"/>
+              <TextField 
+                name="email"
+                id="outlined-basic" 
+                label="Outlined" 
+                variant="outlined" 
+                size="small"
+                value={formData.email}
+              />
             </div>
             <div>
-              <TextField id="outlined-basic" label="Outlined" variant="outlined" size="small"/>
+              <TextField 
+                name="title"
+                id="outlined-basic" 
+                label="Outlined" 
+                variant="outlined" 
+                size="small"
+                value={formData.title}
+              />
             </div>
             <div>
               <TextField
+                name="text"
                 id="outlined-multiline-static"
                 label="Multiline"
                 multiline
                 rows={4}
                 defaultValue="Default Value"
                 variant="outlined"
+                value={formData.text}
               />
             </div>
             <div>
@@ -71,7 +110,7 @@ function SellScreen() {
 
       </div>
       
-      {/* <Paper variant="outlined" square /> */}
+      
       
     </div>
   )
