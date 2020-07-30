@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Playball&family=Roboto&display=swap');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,6 +8,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f9f7f6 !important;
 }
 
 code {
@@ -33,6 +37,7 @@ code {
   color: rgb(105, 13, 128);
   font-size: 20px;
   text-decoration: none;
+  font-family: 'Roboto', sans-serif;
 }
 .container-carousel {
   position: relative;
@@ -40,8 +45,45 @@ code {
   left: 100px;
   top: 0;
 }
-.carousel {
 
+/* Shopping cart */
 
-  width: 200px;
+.container-shoppingcart {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
 }
+.button-shoppingcart {
+  height: 35px;
+
+  color: white;
+}
+.counter-shoppingcart {
+  color: white;
+  text-align: center;
+  margin: 0;
+}
+.logoHeader {
+  color: white;
+  font-family: 'Playball';
+  margin-left: 15px;
+}
+/* 
+.addToCart {
+  position: absolute;
+  width: 100%;
+  background-color: darkgrey;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  cursor: pointer;
+  text-align:center;
+}
+
+.image:hover .item1,
+.image:hover .item2,
+.image:hover .item3 {
+  bottom: 50px;
+  opacity: 1;
+  padding: 10px;
+  text-decoration: none;
+} */

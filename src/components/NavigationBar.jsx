@@ -1,11 +1,13 @@
 import React from 'react';
-import { NavLink, useHistory } from 'react-router-dom';
+import { Link, NavLink, useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux'
 /* 
 import logo from '../svg/logo2.svg';
 import StarIcon from '@material-ui/icons/Star';
 import ViewAgendaIcon from '@material-ui/icons/ViewAgenda';
 import PersonIcon from '@material-ui/icons/Person'; */
 import SearchIcon from '@material-ui/icons/Search';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCartOutlined';
 
 import InputBase from '@material-ui/core/InputBase';
 
@@ -20,10 +22,6 @@ const useStyles = makeStyles((theme) =>
     root: {
       flexGrow: 1,
     },
-    logoHeader: {
-      color: 'white',
-    },
-
     searchIconInSearch: {
       color: 'white',
     },
@@ -75,20 +73,20 @@ const useStyles = makeStyles((theme) =>
 
   const classes = useStyles();
 
- 
+  const productState = useSelector(state => state.productReducer)
 
 
   return (
     <div className="navBar">
 
     <NavLink className="navLink" to='/'>
-      <h2 className={classes.logoHeader}>Sommarbutiken</h2>
+      <h2 className="logoHeader">Sommarbutiken</h2>
     </NavLink>
       <div className="navLinks">
-        <NavLink className="navLink" to='/'>Hem</NavLink>
-        <NavLink className="navLink" to='/clothes'>Kläder</NavLink>
         
-        <NavLink className="navLink" to='/shoes'>Skor</NavLink> 
+        <NavLink className="navLink" to='/sell'>Sälj</NavLink>
+        
+        <NavLink className="navLink" to='/buy'>Köp</NavLink> 
           
         <NavLink className="navLink" to="/login" >Logga in</NavLink>
         
@@ -105,10 +103,17 @@ const useStyles = makeStyles((theme) =>
             input: classes.inputInput,
           }}
           inputProps={{ 'aria-label': 'search' }}
-          
         />
       </div>
-      
+      <div className="container-shoppingcart">
+        <Link to="/cart" className="button-shoppingcart">
+          <ShoppingCartIcon 
+            fontSize="large" 
+            color="inherit"
+          />
+        </Link>
+        <h4 className="counter-shoppingcart">1</h4>
+      </div>
     </div> 
   )
 }

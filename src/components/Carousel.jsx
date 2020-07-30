@@ -2,28 +2,49 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../redux/actions';
  
-class DemoCarousel extends Component {
-    render() {
-        return (
-            <Carousel>
-                <div>
-                    <img src={require('../media/images/Shirt2.png')} />
-                    <p className="legend">Legend 1</p>
-                </div>
-                <div>
-                    <img src={require('../media/images/Shirt3.jpg')} />
-                    <p className="legend">Legend 2</p>
-                </div>
-                <div>
-                    <img src={require('../media/images/Tegnell-300x300.webp')} />
-                    <p className="legend">Legend 2</p>
-                </div>
-            </Carousel>
-        );
-    }
+function HomepageCarousel()  {
+  
+  const dispatch = useDispatch();
+
+  function handleAddToCart(product) {
+    console.log(product)
+    dispatch(addToCart(product))
+  }
+  const shirtOne = {
+    type:'shirt',
+    name:'tegnell-stayhome'
+  }
+
+  return (
+    
+    <Carousel>
+      <div>
+        <img src={require('../media/images/Shirt2.png')} />
+        
+        <a onClick={() =>handleAddToCart(shirtOne)} 
+          className="addToCart" 
+          href="#"
+        >Add to cart
+        </a>
+      </div>
+      <div>
+        <img src={require('../media/images/Shirt3.jpg')} />
+        <p className="carousel-item">carousel-item 2</p>
+        <a className="addToCart" href="#">Add to cart</a>
+      </div>
+      <div>
+        <img src={require('../media/images/Tegnell-300x300.webp')} />
+        <p className="carousel-item">carousel-item 2</p>
+        <a className="addToCart" href="#">Add to cart</a>
+      </div>
+    </Carousel>
+  );
+    
 };
  
-/* ReactDOM.render(<DemoCarousel />, document.querySelector('.demo-carousel')); */
+/* ReactDOM.render(<HomepageCarousel />, document.querySelector('.demo-carousel')); */
 
-export default DemoCarousel;
+export default HomepageCarousel;
