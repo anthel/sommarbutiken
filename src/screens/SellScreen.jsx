@@ -60,7 +60,7 @@ function SellScreen() {
               <TextField 
                 name="name"
                 id="outlined-basic" 
-                label="Outlined" 
+                label="Namn" 
                 variant="outlined" 
                 size="small"
                 value={formData.name}
@@ -70,7 +70,7 @@ function SellScreen() {
               <TextField 
                 name="email"
                 id="outlined-basic" 
-                label="Outlined" 
+                label="Epost" 
                 variant="outlined" 
                 size="small"
                 value={formData.email}
@@ -80,7 +80,7 @@ function SellScreen() {
               <TextField 
                 name="title"
                 id="outlined-basic" 
-                label="Outlined" 
+                label="Annonstitel" 
                 variant="outlined" 
                 size="small"
                 value={formData.title}
@@ -90,7 +90,7 @@ function SellScreen() {
               <TextField
                 name="text"
                 id="outlined-multiline-static"
-                label="Multiline"
+                label="Text"
                 multiline
                 rows={4}
                 defaultValue="Default Value"
