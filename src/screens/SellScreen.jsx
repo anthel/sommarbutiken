@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
       width: 200,
     },
   },
-  flex: {
+  center: {
     display: 'flex',
     justifyContent: 'center',
   },
@@ -46,7 +46,7 @@ function SellScreen() {
   })
 
   return (
-    <div className={classes.flex}>
+    <div className={classes.center}>
       <div className={classes.root}>
         <Paper variant="outlined">
           <h2>Lägg till ny annons i Sommarbutiken</h2>
