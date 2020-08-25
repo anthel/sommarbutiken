@@ -19,7 +19,7 @@
     "react-responsive-carousel": "^3.2.8",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
-    "react-shopping-cart": "^1.9.0",
+    "react-shopping-cart": "^1.9.4",
     "redux": "^4.0.5"
   },
   "scripts": {
