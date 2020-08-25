@@ -17,10 +17,10 @@ function HomepageCarousel()  {
     type:'shirt',
     name:'tegnell-stayhome'
   }
-
+ // Check if carousel size adjusts to image size
   return (
     
-    <Carousel>
+    <Carousel> 
       <div>
         <img src={require('../media/images/Shirt2.png')} />
         
