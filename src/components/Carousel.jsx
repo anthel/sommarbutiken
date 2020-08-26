@@ -20,7 +20,7 @@ function HomepageCarousel()  {
  // Check if carousel size adjusts to image size
   return (
     
-    <Carousel> 
+    <Carousel width='700px'> 
       <div>
         <img src={require('../media/images/Shirt2.png')} />
         

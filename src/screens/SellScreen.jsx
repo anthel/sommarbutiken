@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
 
+import { useDispatch } from 'react-redux';
+import { addItem } from '../redux/actions';
+
 import { makeStyles, ThemeProvider, createMuiTheme  } from '@material-ui/core/styles';
 import { green } from '@material-ui/core/colors';
 import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,6 +32,8 @@ function SellScreen() {
 
   const classes = useStyles();
 
+  const dispatch = useDispatch();
+
   const theme = createMuiTheme({
     palette: {
       primary: green,
@@ -36,6 +42,9 @@ function SellScreen() {
 
   const handleChange = (e) => {
     setFormData({...formData,[e.target.name]: e.target.value})
+  }
+  const handleSubmit = () => {
+    dispatch(addItem(formData));
   }
 
   const [formData, setFormData] = useState({
@@ -100,7 +109,7 @@ function SellScreen() {
             </div>
             <div>
               <ThemeProvider theme={theme}>
-                <Button variant="contained" color="primary" className={classes.margin}>
+                <Button onClick={() => {dispatch(addItem(formData))}} variant="contained" color="primary" className={classes.margin}>
                   Lägg till annons
                 </Button>
               </ThemeProvider>

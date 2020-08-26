@@ -1,7 +1,10 @@
-import React from 'react'
+import React from 'react';
+import { useEffect } from 'react';
 
+import { useSelector } from 'react-redux';
 import { makeStyles, ThemeProvider, createMuiTheme  } from '@material-ui/core/styles';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -11,9 +14,20 @@ const useStyles = makeStyles((theme) => ({
       height: theme.spacing(64)
     },
   },
-  center: {
+  LayoutContainer: {
     display: 'flex',
+    justifyContent: 'flex-start',
+    flexDirection: 'column',
+  },
+  BodyWrapper: {
+    display: 'grid',
+    gridTemplateColumns: 'minmax(0px, 1fr)', //'minmax(0px, 1fr)250px'
+    gap: '16px',
+    padding: '16px 0px',
+  },
+  CenterWithPadding: {
     justifyContent: 'center',
+    padding: '300px',
   },
   listStyles: {
     listStyle: 'outside none none',
@@ -33,8 +47,14 @@ function BuyScreen() {
 
   const classes = useStyles();
 
+  const products = useSelector(state=> state.itemList);
+  const {items} = products;
+  console.log(products)
+  let category = 'Alla artiklar';
+
+
   return (
-    <div>
+    <div className={classes.LayoutContainer}>
       <div className="breadcrumb-wrapper">
         <nav>
           <ol className={classes.listStyles}>
@@ -50,15 +70,29 @@ function BuyScreen() {
             </li>
             <li className={classes.listItem}>
               <a href="#">
-                <div className={classes.plainText}>Alla artiklar</div>
+                <div className={classes.plainText}>{category}</div>
               </a>
             </li>
           </ol>
         </nav>
       </div>
-      <div className={classes.center}>
-        <h3>Alla artiklar</h3>
-      </div>
+      <main className={classes.CenterWithPadding}>
+        <div className={classes.BodyWrapper}>
+          <h1>{category}</h1>
+          {items && items.map(item => {
+            return item.name+item.email+item.title+item.text
+            
+          })}
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        </div>
+      </main>
+      
       
     </div>
   )
