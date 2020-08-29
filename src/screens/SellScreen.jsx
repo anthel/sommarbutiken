@@ -107,6 +107,8 @@ function SellScreen() {
                 value={formData.text}
               />
             </div>
+
+            {/* TODO: Should be possible to upload image */}
             <div>
               <ThemeProvider theme={theme}>
                 <Button onClick={() => {dispatch(addItem(formData))}} variant="contained" color="primary" className={classes.margin}>

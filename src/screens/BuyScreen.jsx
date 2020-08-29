@@ -1,10 +1,10 @@
 import React from 'react';
-import { useEffect } from 'react';
 
 import { useSelector } from 'react-redux';
-import { makeStyles, ThemeProvider, createMuiTheme  } from '@material-ui/core/styles';
+import { makeStyles  } from '@material-ui/core/styles';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
+import ListingCard from '../components/ListingCard';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -79,6 +79,7 @@ function BuyScreen() {
       <main className={classes.CenterWithPadding}>
         <div className={classes.BodyWrapper}>
           <h1>{category}</h1>
+          <ListingCard name="ante"/>
           {items && items.map(item => {
             return item.name+item.email+item.title+item.text
             
