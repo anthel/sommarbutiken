@@ -7,12 +7,15 @@ class ListingCard extends Component {
     super(props);
   }
   render() {
-    console.log(this.props)
+
     return (
       <div>
-        <Paper elevation={3}>
+        <Paper elevation={3} className >
           {/* TODO: Display uploaded image */}
-          Card {this.props.title}
+          <div style={{width:'50px', height:'50px',backgroundColor:'red', display:'inline-block'}}>
+
+          </div>
+          <h3 style={{display:'inline-block'}}>{this.props.title}</h3>
         </Paper>
         
       </div>
