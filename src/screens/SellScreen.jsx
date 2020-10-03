@@ -9,7 +9,11 @@ import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 
-
+const theme = createMuiTheme({
+  palette: {
+    primary: green,
+  },
+});
 const useStyles = makeStyles((theme) => ({
   root: {
     '& .MuiPaper-root': {
@@ -29,30 +33,59 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function SellScreen() {
-
+  
   const classes = useStyles();
-
   const dispatch = useDispatch();
-
-  const theme = createMuiTheme({
-    palette: {
-      primary: green,
-    },
-  });
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    title: '',
+    text: '',
+    image: '',
+    imagePreviewUrl: '',
+  })
 
   const handleChange = (e) => {
     setFormData({...formData,[e.target.name]: e.target.value})
   }
-  const handleSubmit = () => {
-    dispatch(addItem(formData));
-  }
+  const handleImageChange = (e) => {
+    e.preventDefault();
 
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    title: "",
-    text: ""
-  })
+    let reader = new FileReader();
+    let file = e.target.files[0];
+
+    reader.onloadend = () => {
+      setFormData({
+        ...formData,
+        image: file,
+        imagePreviewUrl: reader.result
+      });
+    }
+
+    reader.readAsDataURL(file)
+  }
+  const RenderImageUpload = () => {
+
+    let {imagePreviewUrl} = formData;
+    let $imagePreview = null;
+    if (imagePreviewUrl) {
+      $imagePreview = (<img src={imagePreviewUrl} />);
+    } else {
+      $imagePreview = (<div className="previewText">Please select an Image for Preview</div>);
+    }
+    return (
+      <div className="previewComponent">
+        
+          <input className="fileInput" 
+            type="file" 
+            onChange={(e)=>handleImageChange(e)} />
+
+        <div className="imgPreview">
+          {$imagePreview}
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className={classes.center}>
@@ -108,11 +141,19 @@ function SellScreen() {
               />
             </div>
 
-            {/* TODO: Should be possible to upload image */}
+            {/* TODO: Image preview should be fixed size 
+                Backend for storing and handling images 
+                Images should be saved in categories
+            */}
+            <RenderImageUpload/>
             <div>
               <ThemeProvider theme={theme}>
-                <Button onClick={() => {dispatch(addItem(formData))}} variant="contained" color="primary" className={classes.margin}>
-                  Lägg till annons
+                <Button 
+                  onClick={() => {dispatch(addItem(formData))}} 
+                  variant="contained" 
+                  color="primary" 
+                  className={classes.margin}
+                  > Lägg till annons
                 </Button>
               </ThemeProvider>
             </div>

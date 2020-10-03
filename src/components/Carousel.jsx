@@ -17,7 +17,7 @@ function HomepageCarousel()  {
     type:'shirt',
     name:'tegnell-stayhome'
   }
- // Check if carousel size adjusts to image size
+
   return (
     
     <Carousel width='700px'> 

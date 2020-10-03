@@ -52,7 +52,7 @@ function BuyScreen() {
   console.log(products)
   let category = 'Alla artiklar';
 
-
+  /* TODO: Should be able to pick a category  */
   return (
     <div className={classes.LayoutContainer}>
       <div className="breadcrumb-wrapper">
@@ -86,6 +86,7 @@ function BuyScreen() {
             email={item.email} 
             title={item.title} 
             text={item.text}
+            image={item.imagePreviewUrl}
           />
             
           })}

@@ -1,21 +1,48 @@
-import React, { Component } from 'react'
-
+import React, { Component } from 'react';
+import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
+
+const styles = theme => ({
+  root: {
+
+  },
+  ImageWrapper: {
+    width:'50px', 
+    height:'100px',
+    backgroundColor:'red', 
+    display:'inline-block'
+  },
+  ListingTitle: {
+    display:'inline-block',
+  },
+  Image: {
+    height: '100%',
+  },
+});
 
 class ListingCard extends Component {
   constructor(props) {
     super(props);
+    
   }
+  
   render() {
-
+    console.log(this.props);
+    const { classes } = this.props;
     return (
       <div>
-        <Paper elevation={3} className >
-          {/* TODO: Display uploaded image */}
-          <div style={{width:'50px', height:'50px',backgroundColor:'red', display:'inline-block'}}>
-
-          </div>
-          <h3 style={{display:'inline-block'}}>{this.props.title}</h3>
+        <Paper elevation={3} padding={0} >
+          {/* TODO: Card styling, item text styling */}
+          {this.props.image ? 
+          <div className={classes.ImageWrapper}>
+          <img src={this.props.image} 
+            className={classes.Image}
+            /> 
+          </div> :
+          <div className={classes.ImageWrapper}></div>
+          }
+          <h3 className={classes.ListingTitle}>{this.props.title}</h3>
+          
         </Paper>
         
       </div>
@@ -23,4 +50,5 @@ class ListingCard extends Component {
   }
 }
 
-export default ListingCard;
+
+export default withStyles(styles)(ListingCard)
