@@ -26,7 +26,7 @@ const iPadCaseLocalization = {
 };
  
 const iPadPropertiesWithAdditionalCostLocalization = {
-  yellow: "Yellow (+{cost}{currency})"
+  yellow: "Yellow (+{cost}{localizedCurrency})"
 };
 
 

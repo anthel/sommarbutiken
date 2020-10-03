@@ -23,19 +23,16 @@ import "font-awesome/css/font-awesome.min.css"; */
 
 
 const store = createStore(
-  combineReducers({
-    cart: cartReducer,
-    
-  }), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    /* cart: cartReducer, */
+    allReducers
+  , window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
-store.dispatch(setCartCurrency("EUR"));
+/* store.dispatch(setCartCurrency("EUR")); */
 
 ReactDOM.render(
-  <React.StrictMode>
     <Provider store={store}>
       <App />
     </Provider>,
-  </React.StrictMode>,
   document.getElementById('root')
 );
 
