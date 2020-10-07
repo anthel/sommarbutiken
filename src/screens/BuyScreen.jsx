@@ -86,6 +86,7 @@ function BuyScreen() {
             email={item.email} 
             title={item.title} 
             text={item.text}
+            date={item.date}
             image={item.imagePreviewUrl}
           />
             
