@@ -4,48 +4,103 @@ import Paper from '@material-ui/core/Paper';
 
 const styles = theme => ({
   root: {
-
+    '& .MuiPaper-root': {
+      padding: '10px',
+      height: theme.spacing(15),
+      display: 'flex',
+    },
   },
   ImageWrapper: {
-    width:'50px', 
+    width:'fit-content', 
     height:'100px',
     backgroundColor:'red', 
-    display:'inline-block'
+    alignSelf: 'flex-start',
+    position: 'relative',
+    flexShrink: 0,
   },
   ListingTitle: {
+    position: 'relative',
+
     display:'inline-block',
+    fontFamily: 'Roboto',
   },
+
   Image: {
     height: '100%',
+  },
+  ContentWrapper: {
+    display: 'flex',
+    flexDirection: 'column',
+    flexGrow: 1,
+  },
+  TimeLocationWrapper: {
+    display: 'flex',
+    alignItems: 'baseline',
+  },
+  TopInfoWrapper: {
+    flexGrow: 1, 
+  },
+  ListingCategory: {
+
+  },
+  ListingLocation: {
+
+  },
+  ListingDate: {
+    display:'inline-block',
+    fontFamily: 'Roboto',
+    fontSize: '12px',
+    textAlign: 'right',
+  },
+  TitleWrapper: {
+    display: 'flex',
+  },
+  PriceInfo: {
+
   },
 });
 
 class ListingCard extends Component {
   constructor(props) {
     super(props);
-    
   }
   
   render() {
-    console.log(this.props);
     const { classes } = this.props;
     return (
-      <div>
-        <Paper elevation={3} padding={0} >
+      <div className={classes.root}>
+        <Paper elevation={3} component={"article"}>
           {/* TODO: Card styling, item text styling */}
-          {this.props.image ? 
-          <div className={classes.ImageWrapper}>
-          <img src={this.props.image} 
-            className={classes.Image}
-            /> 
-          </div> :
-          <div className={classes.ImageWrapper}></div>
-          }
-          <h3 className={classes.ListingTitle}>{this.props.title}</h3>
           
+            {this.props.image ? 
+            <div className={classes.ImageWrapper}>
+            <img src={this.props.image} className={classes.Image} /> 
+            </div> :
+            <div className={classes.ImageWrapper}></div>
+            }
+            <div className={classes.ContentWrapper}>
+              <div className={classes.TimeLocationWrapper}>
+                <p className={classes.TopInfoWrapper}>
+                  <a className={classes.ListingCategory}>Bilar</a>
+                   - 
+                  <a className={classes.ListingLocation}>Skåne</a>
+                </p>
+                <p className={classes.ListingDate}>{this.props.date.toDateString()}</p>
+                
+              </div>
+              <div className={classes.TitleWrapper}>
+                <h5 className={classes.ListingTitle}>{this.props.title}</h5>
+              </div>
+              <div className={classes.PriceInfo}>
+                10 000 kr
+              </div>
+              
+             
+            </div>
+
+              
         </Paper>
-        
-      </div>
+        </div>
     )
   }
 }

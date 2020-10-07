@@ -19,16 +19,35 @@ const useStyles = makeStyles((theme) => ({
     '& .MuiPaper-root': {
       marginTop: theme.spacing(5),
       width: theme.spacing(64),
-      height: theme.spacing(64)
+      height: theme.spacing(90)
     },
     '& .MuiTextField-root': {
       margin: theme.spacing(1),
-      width: 200,
+      width: theme.spacing(25),
     },
   },
-  center: {
+  CenterLayout: {
     display: 'flex',
     justifyContent: 'center',
+  },
+  CenterContent: {
+    height: 'inherit',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+  },
+  ImagePreview: {
+    width: 'fit-content',
+    height: 'fit-content',
+  },
+  SubmitButton: {
+    position: 'absolute',
+    bottom: '1',
+  },
+  HeaderText: {
+    fontFamily: 'Roboto',
+    textAlign: 'center',
   },
 }));
 
@@ -43,10 +62,15 @@ function SellScreen() {
     text: '',
     image: '',
     imagePreviewUrl: '',
+    date: '',
   })
 
   const handleChange = (e) => {
-    setFormData({...formData,[e.target.name]: e.target.value})
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+      date: new Date(),
+    })
   }
   const handleImageChange = (e) => {
     e.preventDefault();
@@ -61,17 +85,19 @@ function SellScreen() {
         imagePreviewUrl: reader.result
       });
     }
-
     reader.readAsDataURL(file)
+  }
+  const handleSubmit = () => {
+    dispatch(addItem(formData))
   }
   const RenderImageUpload = () => {
 
     let {imagePreviewUrl} = formData;
-    let $imagePreview = null;
+    let imagePreview = null;
     if (imagePreviewUrl) {
-      $imagePreview = (<img src={imagePreviewUrl} />);
+      imagePreview = (<img src={imagePreviewUrl} width={100} />);
     } else {
-      $imagePreview = (<div className="previewText">Please select an Image for Preview</div>);
+      imagePreview = (<div className={classes.ImagePreview}>Please select an Image for Preview</div>);
     }
     return (
       <div className="previewComponent">
@@ -80,90 +106,91 @@ function SellScreen() {
             type="file" 
             onChange={(e)=>handleImageChange(e)} />
 
-        <div className="imgPreview">
-          {$imagePreview}
+        <div className={classes.ImagePreview}>
+          {imagePreview}
         </div>
       </div>
     )
   }
 
   return (
-    <div className={classes.center}>
+    <div className={classes.CenterLayout}>
       <div className={classes.root}>
         <Paper variant="outlined">
-          <h2>Lägg till ny annons i Sommarbutiken</h2>
-          <form 
-            className={classes.root} 
-            noValidate 
-            autoComplete="off"
-            onChange={handleChange}
-          >
-            <div>
-              <TextField 
-                name="name"
-                id="outlined-basic" 
-                label="Namn" 
-                variant="outlined" 
-                size="small"
-                value={formData.name}
-              />
-            </div>
-            <div>
-              <TextField 
-                name="email"
-                id="outlined-basic" 
-                label="Epost" 
-                variant="outlined" 
-                size="small"
-                value={formData.email}
-              />
-            </div>
-            <div>
-              <TextField 
-                name="title"
-                id="outlined-basic" 
-                label="Annonstitel" 
-                variant="outlined" 
-                size="small"
-                value={formData.title}
-              />
-            </div>
-            <div>
-              <TextField
-                name="text"
-                id="outlined-multiline-static"
-                label="Text"
-                multiline
-                rows={4}
-                defaultValue="Default Value"
-                variant="outlined"
-                value={formData.text}
-              />
-            </div>
+          <div className={classes.CenterContent}>
+            <h2 className={classes.HeaderText}>Lägg till ny annons i Sommarbutiken</h2>
+            <form 
+              className={classes.root} 
+              noValidate 
+              autoComplete="off"
+              onChange={handleChange}
+            >
+              <div>
+                <TextField 
+                  name="name"
+                  id="outlined-basic" 
+                  label="Namn" 
+                  variant="outlined" 
+                  size="small"
+                  value={formData.name}
+                />
+              </div>
+              <div>
+                <TextField 
+                  name="email"
+                  id="outlined-basic" 
+                  label="Epost" 
+                  variant="outlined" 
+                  size="small"
+                  value={formData.email}
+                />
+              </div>
+              <div>
+                <TextField 
+                  name="title"
+                  id="outlined-basic" 
+                  label="Annonstitel" 
+                  variant="outlined" 
+                  size="small"
+                  value={formData.title}
+                />
+              </div>
+              <div>
+                <TextField
+                  name="text"
+                  id="outlined-multiline-static"
+                  label="Text"
+                  multiline
+                  rows={4}
+                  defaultValue="Default Value"
+                  variant="outlined"
+                  value={formData.text}
+                />
+              </div>
 
-            {/* TODO: Image preview should be fixed size 
-                Backend for storing and handling images 
-                Images should be saved in categories
-            */}
-            <RenderImageUpload/>
-            <div>
-              <ThemeProvider theme={theme}>
-                <Button 
-                  onClick={() => {dispatch(addItem(formData))}} 
-                  variant="contained" 
-                  color="primary" 
-                  className={classes.margin}
-                  > Lägg till annons
-                </Button>
-              </ThemeProvider>
-            </div>
-          </form>
+              {/* TODO: Image preview should be fixed size 
+                  Backend for storing and handling images 
+                  Images should be saved in categories
+              */}
+              
+              <RenderImageUpload/>
+                
+                <ThemeProvider theme={theme}>
+                
+                  <Button 
+                    onClick={handleSubmit} 
+                    variant="contained" 
+                    color="primary" 
+                    className={classes.SubmitButton}
+                    > Lägg till annons
+                  </Button>
+                  
+                </ThemeProvider>
+
+            </form>
+          </div>
         </Paper>
-
       </div>
-      
-      
-      
     </div>
   )
 }

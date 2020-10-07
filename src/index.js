@@ -16,18 +16,18 @@ import {
   setCartCurrency
 } from 'react-shopping-cart';
  
-/* import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/css/bootstrap.css";
 import "animate.css/animate.min.css";
-import "font-awesome/css/font-awesome.min.css"; */
-
+import "font-awesome/css/font-awesome.min.css";
 
 
 const store = createStore(
-    /* cart: cartReducer, */
+  combineReducers({
+    cart: cartReducer,
     allReducers
-  , window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  }), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
-/* store.dispatch(setCartCurrency("EUR")); */
+store.dispatch(setCartCurrency("EUR"));
 
 ReactDOM.render(
     <Provider store={store}>

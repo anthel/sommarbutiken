@@ -47,7 +47,7 @@ function BuyScreen() {
 
   const classes = useStyles();
 
-  const products = useSelector(state=> state.itemList);
+  const products = useSelector(state=> state.allReducers.itemList);
   const {items} = products;
   console.log(products)
   let category = 'Alla artiklar';
@@ -86,6 +86,7 @@ function BuyScreen() {
             email={item.email} 
             title={item.title} 
             text={item.text}
+            date={item.date}
             image={item.imagePreviewUrl}
           />
             
