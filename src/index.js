@@ -8,6 +8,7 @@ import allReducers from './redux/reducers';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 
+import { cartReducer, setCartCurrency} from 'react-shopping-cart';
  
 import "bootstrap/dist/css/bootstrap.css";
 import "animate.css/animate.min.css";

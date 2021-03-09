@@ -18,12 +18,6 @@ const styles = theme => ({
     position: 'relative',
     flexShrink: 0,
   },
-  ListingTitle: {
-    position: 'relative',
-
-    display:'inline-block',
-    fontFamily: 'Roboto',
-  },
 
   Image: {
     height: '100%',
@@ -32,6 +26,7 @@ const styles = theme => ({
     display: 'flex',
     flexDirection: 'column',
     flexGrow: 1,
+    marginLeft: '16px',
   },
   TimeLocationWrapper: {
     display: 'flex',
@@ -52,8 +47,20 @@ const styles = theme => ({
     fontSize: '12px',
     textAlign: 'right',
   },
-  TitleWrapper: {
+  SubjectWrapper: {
     display: 'flex',
+  },
+  ListingTitleWrapper: {
+
+  },
+  ListingTitleLink: {
+    position: 'relative',
+    fontSize: '17px',
+    display:'inline-block',
+    fontFamily: 'Roboto',
+  },
+  SubjectContainer: {
+
   },
   PriceInfo: {
 
@@ -88,8 +95,17 @@ class ListingCard extends Component {
                 <p className={classes.ListingDate}>{this.props.date.toDateString()}</p>
                 
               </div>
-              <div className={classes.TitleWrapper}>
-                <h5 className={classes.ListingTitle}>{this.props.title}</h5>
+              <div className={classes.SubjectWrapper}>
+                <h5 className={classes.ListingTitleWrapper}>
+                  <a 
+                    className={classes.ListingTitleLink}
+                    href='#'
+                    >
+                    <span className={classes.SubjectContainer}>{this.props.title}</span>
+                    
+                    </a>
+                  
+                  </h5>
               </div>
               <div className={classes.PriceInfo}>
                 10 000 kr

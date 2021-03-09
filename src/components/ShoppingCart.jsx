@@ -4,8 +4,6 @@ import {
   Product,
   CheckoutButton,
   cartLocalization,
-  cartReducer,
-  setCartCurrency
 } from 'react-shopping-cart';
  
 import 'bootstrap/dist/css/bootstrap.css';
