@@ -6,7 +6,10 @@ export default function HomeScreen() {
     <div>
       <div className="container-carousel">
         <h2>Senast inkommet</h2>
-        <Carousel/>
+        {/* <Carousel/> */}
+        <div id="otEmbedContainer" style={{width:'800px', height:'640px'}}>
+          </div> 
+          
       </div>
     </div>
   )
