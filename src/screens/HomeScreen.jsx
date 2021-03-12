@@ -56,7 +56,7 @@ function initializeSession() {
           
         <div id="videos">
           <div id="subscriber" style={{width: '800px', height: '640px'}}></div>
-          <div id="publisher" style={{width: '400px', height: '320px'}}></div>
+          <div id="publisher" style={{width: '800px', height: '640px'}}></div>
         </div>
       </div>
     </div>
