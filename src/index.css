@@ -87,3 +87,18 @@ code {
   padding: 10px;
   text-decoration: none;
 } */
+
+#videos {
+  height: 800px;
+  width: 1000px;
+  background-color: red;
+}
+#publisher {
+  height: 300px;
+  width: 500px;
+}
+
+#subscriber {
+  height: 300px;
+  width: 500px;
+}

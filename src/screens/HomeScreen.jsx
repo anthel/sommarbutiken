@@ -54,10 +54,11 @@ function initializeSession() {
         {/* <div id="otEmbedContainer" style={{width:'800px', height:'640px'}}>
           </div>  */}
           
-        <div id="videos">
-          <div id="subscriber" style={{width: '800px', height: '640px'}}></div>
-          <div id="publisher" style={{width: '800px', height: '640px'}}></div>
-        </div>
+        
+      </div>
+      <div id="videos">
+          <div id="subscriber"></div>
+          <div id="publisher"></div>
       </div>
     </div>
   )
