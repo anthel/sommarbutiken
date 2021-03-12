@@ -30,7 +30,7 @@ function initializeSession() {
   });
 
   // Create a publisher
-  var publisher = window.OT.initPublisher('publisher', {
+  var publisher = window.OT.initPublisher('publish', {
     insertMode: 'append',
     width: '100%',
     height: '100%'
@@ -58,7 +58,7 @@ function initializeSession() {
       </div>
       <div id="videos">
           <div id="subscriber"></div>
-          <div id="publisher"></div>
+          <div id="publish"></div>
       </div>
     </div>
   )
