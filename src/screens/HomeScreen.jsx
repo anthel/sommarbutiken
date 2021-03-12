@@ -5,7 +5,7 @@ export default function HomeScreen() {
   // replace these values with those generated in your TokBox Account
   var apiKey = "47156634";
   var sessionId = "1_MX40NzE1NjYzNH5-MTYxNTQ3MzMxODIyMH55UnFKandZNUJoeHNYVy9OYjBKcmp0elp-fg";
-  var token = "T1==cGFydG5lcl9pZD00NzE1NjYzNCZzaWc9YTY1YzU3MDg1NWE3OGI4MjRjOGM3MTNiNzQ5NTg2ODA3NjFmYTYxNDpzZXNzaW9uX2lkPTFfTVg0ME56RTFOall6Tkg1LU1UWXhOVFEzTXpNeE9ESXlNSDU1VW5GS2FuZFpOVUpvZUhOWVZ5OU9ZakJLY21wMGVscC1mZyZjcmVhdGVfdGltZT0xNjE1NDczMzc3Jm5vbmNlPTAuOTUyNjU2NjI2OTY1MzM0NSZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNjE1NDk0OTc4JmluaXRpYWxfbGF5b3V0X2NsYXNzX2xpc3Q9";
+  var token = "T1==cGFydG5lcl9pZD00NzE1NjYzNCZzaWc9ZTY4MDA4OTQ0YmM3Njc2YzVkMGI1OGY1N2NjMTE5OWE2NmVhZTUxMjpzZXNzaW9uX2lkPTFfTVg0ME56RTFOall6Tkg1LU1UWXhOVFEzTXpNeE9ESXlNSDU1VW5GS2FuZFpOVUpvZUhOWVZ5OU9ZakJLY21wMGVscC1mZyZjcmVhdGVfdGltZT0xNjE1NTY3NzMwJm5vbmNlPTAuOTczNDIwMDIzNTk1ODIwNiZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNjE1NjU0MTMwJmluaXRpYWxfbGF5b3V0X2NsYXNzX2xpc3Q9";
 
   // (optional) add server code here
   initializeSession();
@@ -54,10 +54,10 @@ function initializeSession() {
         {/* <div id="otEmbedContainer" style={{width:'800px', height:'640px'}}>
           </div>  */}
           
-      <div id="videos">
-          <div id="subscriber"></div>
-          <div id="publisher"></div>
-      </div>
+        <div id="videos">
+          <div id="subscriber" style={{width: '800px', height: '640px'}}></div>
+          <div id="publisher" style={{width: '400px', height: '320px'}}></div>
+        </div>
       </div>
     </div>
   )
